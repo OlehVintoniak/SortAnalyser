@@ -1,7 +1,6 @@
-﻿using System;
+﻿using SortAnalyser.Core;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using SortAnalyser.Core;
 
 namespace SortAnalyser
 {
@@ -9,19 +8,12 @@ namespace SortAnalyser
     {
         static void Main()
         {
-            var array = GenerateArray(10);
-            ShowArray(array);
+            var array = GenerateArray(1000);
 
-            var watch = Stopwatch.StartNew();
-            //Sort.Instance.BubbleSort(array);
-            //Sort.Instance.InsertionSort(array);
-            //Sort.Instance.MergeSort(array);
-            //Sort.Instance.SelectionSort(array);
-            Sort.Instance.QuickSort(array, 0, array.Length - 1);
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
+            var context = new SorterContext(new BubleSorter());
 
-            ShowArray(array);
+            var elapsedMs = context.GetSortTime(array);
+
             Console.WriteLine($"Time : {elapsedMs} milliseconds");
             Console.ReadLine();
         }
