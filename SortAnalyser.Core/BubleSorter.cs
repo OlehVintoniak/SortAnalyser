@@ -13,6 +13,7 @@ namespace SortAnalyser.Core
                     if (array[i] > array[j])
                     {
                         Swap(array, i, j);
+                        ShowIteration(array);
                     }
                 }
             }

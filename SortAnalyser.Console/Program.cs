@@ -8,27 +8,25 @@ namespace SortAnalyser
     {
         static void Main()
         {
-            var array = GenerateArray(1000);
+            var array = GenerateArray(10);
 
-            var context = new SorterContext(new BubleSorter());
+            Console.WriteLine("1. Buble sort");
+            Console.WriteLine("2. Insertion sort");
+            Console.WriteLine("3. Selection sort");
+            Console.WriteLine("4. Quick sort");
+            Console.WriteLine("5. Merge sort");
+            Console.Write("> ");
+            var input = int.Parse(Console.ReadLine());
+            
+            var context = new SorterContext(input);
 
-            var elapsedMs = context.GetSortTime(array);
+            Console.Clear();
+            context.SorterAlgorithm.Sort(array);
 
-            Console.WriteLine($"Time : {elapsedMs} milliseconds");
             Console.ReadLine();
         }
 
         #region Helpers
-
-
-        private static void ShowArray(int[] array)
-        {
-            foreach (var item in array)
-            {
-                Console.Write($"{item} ");
-            }
-            Console.WriteLine();
-        }
 
         private static int[] GenerateArray(int length)
         {
@@ -36,7 +34,7 @@ namespace SortAnalyser
             var listNumbers = new List<int>();
             for (int i = 0; i < length; i++)
             {
-                listNumbers.Add(rand.Next(0, 10000));
+                listNumbers.Add(rand.Next(0, 10));
             }
             return listNumbers.ToArray();
         }

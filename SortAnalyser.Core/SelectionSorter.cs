@@ -18,6 +18,7 @@ namespace SortAnalyser.Core
                     }
                 }
                 Swap(array, minIndex, x);
+                ShowIteration(array);
             }
         }
     }

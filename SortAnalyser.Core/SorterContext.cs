@@ -1,4 +1,5 @@
 ﻿using SortAnalyser.Core.Abstract;
+using SortAnalyser.Core.Factory;
 using System.Diagnostics;
 
 namespace SortAnalyser.Core
@@ -10,6 +11,11 @@ namespace SortAnalyser.Core
         public SorterContext(ISorter sorter)
         {
             SorterAlgorithm = sorter;
+        }
+
+        public SorterContext(int sorterType)
+        {
+            SorterAlgorithm = SorterFactory.GetSorter(sorterType);
         }
 
         public long GetSortTime(int[] array)

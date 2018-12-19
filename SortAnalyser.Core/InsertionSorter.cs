@@ -16,6 +16,7 @@ namespace SortAnalyser.Core
                     j--;
                 }
                 array[j] = cur;
+                ShowIteration(array);
             }
         }
     }

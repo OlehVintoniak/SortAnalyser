@@ -29,6 +29,7 @@ namespace SortAnalyser.Core
                 {
                     Swap(array, i, marker);
                     marker += 1;
+                    ShowIteration(array);
                 }
             }
             //put pivot(array[end]) between left and right subArrays
